@@ -13,7 +13,7 @@ class SlackTest extends \PHPUnit\Framework\TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $url = getenv('SLACK_END_POINT');
+        $url = getenv('https://hooks.slack.com/services/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');
         $this->slack = new Slack($url);
     }
 
