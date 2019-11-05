@@ -32,15 +32,14 @@ class MessageFactory
             $message->setIconType(IconTypeEnum::ICON_EMOJI);
         }
 
-        if (isset($params['iconUrl'])  && $params['iconType'] == IconTypeEnum::ICON_URL) {
+        if (isset($params['iconUrl']) && $params['iconType'] == IconTypeEnum::ICON_URL) {
             $message->setIconUrl($params['iconUrl']);
             $message->setIconType(IconTypeEnum::ICON_URL);
         }
 
-        $attachments = isset($params['attachments']) ? $params['attachments'] : null;
         $message->setAttachments([]);
-        if (is_array($attachments) && count($attachments) > 0) {
-            $message->setAttachments($attachments);
+        if (isset($params['attachments'])) {
+            $message->setAttachments($params['attachments']);
         }
         return $message;
     }

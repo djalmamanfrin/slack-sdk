@@ -37,7 +37,7 @@ class Field
 
     public function getShort(): bool
     {
-        return is_bool($this->short) ?: false;
+        return $this->short;
     }
 
     public function setShort(string $value)

@@ -20,66 +20,51 @@ class AttachmentFactory
             $message = "Field text can not be empty. Please fill the text field";
             throw new InvalidArgumentException($message);
         }
-
         if (isset($params['image_url'])) {
             $attachment->setImageUrl($params['image_url']);
         }
-
         if (isset($params['thumb_url'])) {
             $attachment->setThumbUrl($params['thumb_url']);
         }
-
         if (isset($params['pretext'])) {
             $attachment->setPretext($params['pretext']);
         }
-
         if (isset($params['color'])) {
             $attachment->setColor($params['color']);
         }
-
         if (isset($params['footer'])) {
             $attachment->setFooter($params['footer']);
         }
-
         if (isset($params['footer_icon'])) {
             $attachment->setFooterIcon($params['footer_icon']);
         }
-
+        $attachment->setTimestamp(new DateTime());
         if (isset($params['ts'])) {
             $attachment->setTimestamp($params['ts']);
-        } else {
-            $attachment->setTimestamp(new DateTime());
         }
-
         $attachment->setMarkdownFields([]);
         if (isset($params['mrkdwn_in'])) {
             $attachment->setMarkdownFields($params['mrkdwn_in']);
         }
-
         if (isset($params['title'])) {
             $attachment->setTitle($params['title']);
         }
-
         if (isset($params['title_link'])) {
             $attachment->setTitleLink($params['title_link']);
         }
-
         if (isset($params['author_name'])) {
             $attachment->setAuthorName($params['author_name']);
         }
-
         if (isset($params['author_link'])) {
             $attachment->setAuthorLink($params['author_link']);
         }
         if (isset($params['author_icon'])) {
             $attachment->setAuthorIcon($params['author_icon']);
         }
-
         $attachment->setActions([]);
         if (isset($params['actions'])) {
             $attachment->setActions($params['actions']);
         }
-
         $attachment->setFields([]);
         if (isset($params['fields'])) {
             $attachment->setFields($params['fields']);
@@ -97,7 +82,6 @@ class AttachmentFactory
             if (!empty($fallback)) {
                 $params['fallback'] = $fallback;
             }
-
             $text = $attachment->getText();
             if (!empty($text)) {
                 $params['text'] = $text;
@@ -105,22 +89,18 @@ class AttachmentFactory
                 $message = "Field callback can not be empty. Please fill the callback field";
                 throw new InvalidArgumentException($message);
             }
-
             $imageUrl = $attachment->getImageUrl();
             if (!empty($imageUrl)) {
                 $params['image_url'] = $imageUrl;
             }
-
             $thumbUrl = $attachment->getThumbUrl();
             if (!empty($thumbUrl)) {
                 $params['thumb_url'] = $thumbUrl;
             }
-
             $preText = $attachment->getPretext();
             if (!empty($preText)) {
                 $params['pretext'] = $preText;
             }
-
             $color = $attachment->getColor();
             if (!empty($color)) {
                 $params['color'] = $color;
@@ -137,7 +117,6 @@ class AttachmentFactory
             if (!empty($timestamp)) {
                 $params['ts'] = $timestamp;
             }
-
             $mrkdwnIn = $attachment->getMarkdownFields();
             if (!empty($mrkdwnIn)) {
                 $params['mrkdwn_in'] = $mrkdwnIn;
@@ -162,12 +141,10 @@ class AttachmentFactory
             if (!empty($authorIcon)) {
                 $params['author_icon'] = $authorIcon;
             }
-
             $actions = $attachment->getActions();
             if (is_array($actions) && count($actions) > 0) {
                 $params['actions'] = $actions;
             }
-
             $fields = $attachment->getFields();
             if (is_array($fields) && count($fields) > 0) {
                 $params['fields'] = $fields;
