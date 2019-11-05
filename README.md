@@ -1,4 +1,4 @@
-# Slack SDK for PHP (In Progress)
+# Slack SDK for PHP (Tests In Progress)
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/?branch=master)
@@ -8,7 +8,7 @@
 A simple PHP package for sending messages to [Slack](https://slack.com) with [incoming webhooks](https://my.slack.com/services/new/incoming-webhook), focussed on ease-of-use and elegant syntax. **Note: this package is no longer being actively maintained.**
 
 ## Requirements
-* PHP 7.1 or above
+* PHP 7.2 or above
 
 ## Installation
 You can install the package using the [Composer](https://getcomposer.org/) package manager. You can install it by running this command in your project root:
