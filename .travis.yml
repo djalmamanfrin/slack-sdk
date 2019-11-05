@@ -7,7 +7,7 @@ php:
 matrix:
   include:
     - env:
-        - SLACK_END_POINT=https://hooks.slack.com/services/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
+        - SLACK_END_POINT =https://hooks.slack.com/services/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
 
 before_script:
   - composer install --prefer-source --no-interaction
