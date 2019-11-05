@@ -1,7 +1,7 @@
 {
-  "name": "mm/notifier",
-  "description": "A simple PHP package for sending messages by Slack and many others if you implement.",
-  "keywords": ["slack"],
+  "name": "manfrin/slack",
+  "description": "A simple PHP package for sending messages by Slack using webhooks",
+  "keywords": ["slack", "sdk", "php"],
   "authors": [
     {
       "name": "Djalma Manfrin",
