@@ -85,7 +85,7 @@ class Action
         return  $this->confirm;
     }
 
-    public function setConfirm(array $actionConfirm)
+    public function setConfirm($actionConfirm)
     {
         $this->confirm = null;
         if ($actionConfirm instanceof ActionConfirm) {

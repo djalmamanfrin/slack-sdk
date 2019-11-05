@@ -101,7 +101,7 @@ class Message
                 array_push($this->attachments, $attachment);
                 continue;
             }
-            if (is_array($attachment)) {
+            if (is_array($attachment) && !empty($attachment)) {
                 $attachment = AttachmentFactory::createFromArray($attachment);
                 array_push($this->attachments, $attachment);
                 continue;

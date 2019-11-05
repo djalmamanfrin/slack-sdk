@@ -85,7 +85,7 @@ class ActionFactory
 
             $confirm = $action->getConfirm();
             if ($confirm instanceof ActionConfirm) {
-                $params['confirm'] = ActionConfirmFactory::toArray($confirm);;
+                $params['confirm'] = ActionConfirmFactory::toArray($confirm);
             }
             array_push($result, $params);
         }
