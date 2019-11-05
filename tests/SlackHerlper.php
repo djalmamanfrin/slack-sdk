@@ -57,7 +57,7 @@ class SlackHerlper
                     "thumb_url" => "http://example.com/path/to/thumb.png",
                     "footer" => "Slack API",
                     "footer_icon" => "https://platform.slack-edge.com/img/default_application_icon.png",
-                    "ts" => (new DateTime())->getTimestamp()
+                    "ts" => new DateTime()
                 ]
             ]
         ];
@@ -186,7 +186,7 @@ class SlackHerlper
                             "value" => "war",
                             "confirm" => [
                                 "title" => "Are you sure?",
-                                "text" => "Wouldn't you prefer a good game of chess?",
+                                "text" => "Would not you prefer a good game of chess?",
                                 "ok_text" => "Yes",
                                 "dismiss_text" => "No"
                             ]
