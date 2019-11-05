@@ -2,6 +2,3 @@
 .idea/
 vendor/
 tests/.phpunit.result.cache
-dockerfiles/
-docker-compose.yml
-html
