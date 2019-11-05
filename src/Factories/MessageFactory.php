@@ -1,10 +1,10 @@
 <?php
 
-namespace MM\Notifier\Factories;
+namespace Slack\Factories;
 
 use InvalidArgumentException;
-use MM\Notifier\Entities\Message;
-use MM\Notifier\Enums\IconTypeEnum;
+use Slack\Entities\Message;
+use Slack\Enums\IconTypeEnum;
 
 class MessageFactory
 {

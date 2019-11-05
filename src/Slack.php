@@ -1,9 +1,9 @@
 <?php
 
-namespace MM\Notifier;
+namespace Slack;
 
-use MM\Notifier\Entities\Message;
-use MM\Notifier\Factories\MessageFactory;
+use Slack\Entities\Message;
+use Slack\Factories\MessageFactory;
 
 class Slack
 {

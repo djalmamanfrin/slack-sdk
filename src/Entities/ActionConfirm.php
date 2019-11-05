@@ -1,6 +1,6 @@
 <?php
 
-namespace MM\Notifier\Entities;
+namespace Slack\Entities;
 
 class ActionConfirm
 {

@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use MM\Notifier\Factories\MessageFactory;
-use MM\Notifier\Slack;
+use Slack\Factories\MessageFactory;
+use Slack\Slack;
 
 class SlackTest extends \PHPUnit\Framework\TestCase
 {

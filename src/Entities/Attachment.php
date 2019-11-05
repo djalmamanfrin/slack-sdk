@@ -1,11 +1,11 @@
 <?php
 
-namespace MM\Notifier\Entities;
+namespace Slack\Entities;
 
 use DateTime;
 use InvalidArgumentException;
-use MM\Notifier\Factories\ActionFactory;
-use MM\Notifier\Factories\FieldFactory;
+use Slack\Factories\ActionFactory;
+use Slack\Factories\FieldFactory;
 
 class Attachment
 {

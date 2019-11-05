@@ -1,8 +1,8 @@
 <?php
 
-namespace MM\Notifier\Entities;
+namespace Slack\Entities;
 
-use MM\Notifier\Factories\FieldFactory;
+use Slack\Factories\FieldFactory;
 
 class Field
 {

@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MM\\Notifier\\": "src/",
+      "Slack\\": "src/",
       "Tests\\": "tests/"
     }
   }

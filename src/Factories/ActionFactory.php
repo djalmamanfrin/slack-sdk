@@ -1,11 +1,11 @@
 <?php
 
-namespace MM\Notifier\Factories;
+namespace Slack\Factories;
 
 use InvalidArgumentException;
-use MM\Notifier\Entities\Action;
-use MM\Notifier\Entities\ActionConfirm;
-use MM\Notifier\Enums\ButtonTypeEnum;
+use Slack\Entities\Action;
+use Slack\Entities\ActionConfirm;
+use Slack\Enums\ButtonTypeEnum;
 
 class ActionFactory
 {

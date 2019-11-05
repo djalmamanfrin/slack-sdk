@@ -1,6 +1,6 @@
 <?php
 
-namespace MM\Notifier\Enums;
+namespace Slack\Enums;
 
 use InvalidArgumentException;
 use ReflectionClass;

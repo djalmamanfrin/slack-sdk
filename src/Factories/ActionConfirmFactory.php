@@ -1,11 +1,11 @@
 <?php
 
 
-namespace MM\Notifier\Factories;
+namespace Slack\Factories;
 
 
 use InvalidArgumentException;
-use MM\Notifier\Entities\ActionConfirm;
+use Slack\Entities\ActionConfirm;
 
 class ActionConfirmFactory
 {
