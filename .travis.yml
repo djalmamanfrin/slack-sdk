@@ -7,7 +7,6 @@ php:
 before_script:
   - composer install --prefer-source --no-interaction
   - cp .env.example .env
-  - echo SLACK_END_POINT=https://hooks.slack.com/services/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 >> .env
 
 script:
   - phpunit
