@@ -3,6 +3,8 @@
 namespace Slack\Entities;
 
 use InvalidArgumentException;
+use Slack\Enums\ButtonStyleEnum;
+use Slack\Enums\ButtonTypeEnum;
 use Slack\Factories\ActionConfirmFactory;
 
 class Action
@@ -33,7 +35,6 @@ class Action
     public function setName(string $name)
     {
         $this->name = $name;
-        return $this;
     }
 
     public function getText():string
@@ -44,7 +45,6 @@ class Action
     public function setText(string $text)
     {
         $this->text = $text;
-        return $this;
     }
 
     public function getStyle()
@@ -55,7 +55,6 @@ class Action
     public function setStyle(string $style)
     {
         $this->style = $style;
-        return $this;
     }
 
     public function getType():string
@@ -66,7 +65,6 @@ class Action
     public function setType(string $type)
     {
         $this->type = $type;
-        return $this;
     }
 
     public function getValue()
@@ -77,7 +75,6 @@ class Action
     public function setValue(string $value)
     {
         $this->value = $value;
-        return $this;
     }
 
     public function getConfirm()

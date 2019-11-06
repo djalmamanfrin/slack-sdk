@@ -40,8 +40,8 @@ class Field
         return $this->short;
     }
 
-    public function setShort(string $value)
+    public function setShort(bool $short)
     {
-        $this->short = (bool) $value;
+        $this->short = $short;
     }
 }

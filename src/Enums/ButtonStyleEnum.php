@@ -1,14 +1,16 @@
 <?php
 
+
 namespace Slack\Enums;
 
-use InvalidArgumentException;
+
 use ReflectionClass;
 
-class ButtonTypeEnum
+class ButtonStyleEnum
 {
-    const BUTTON = 'button';
-    const SELECT = 'select';
+    const DEFAULT = 'default';
+    const PRIMARY = 'primary';
+    const DANGER = 'danger';
 
     public static function all()
     {
