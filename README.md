@@ -31,7 +31,7 @@ composer require manfrin/slack
 $url = getenv('SLACK_END_POINT');
 $this->slack = new Slack($url);
 
-// Create you payload, See examples in the file SlackHelper.php
+// Create you payload, See examples in the file FactoryHelper.php
 $payload = SlackHerlper::getMessageWithAttachmentAndActionConfirm();
 $message = MessageFactory::createFromArray($payload);
 $result = $this->slack->send($message);
