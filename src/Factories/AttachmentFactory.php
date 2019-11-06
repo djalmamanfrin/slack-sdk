@@ -18,7 +18,7 @@ class AttachmentFactory
             $attachment->setText($params['text']);
         } else {
             $message = "Field text can not be empty. Please fill the text field";
-            throw new InvalidArgumentException($message);
+            throw new InvalidArgumentException($message, 422);
         }
         if (isset($params['image_url'])) {
             $attachment->setImageUrl($params['image_url']);
@@ -87,7 +87,7 @@ class AttachmentFactory
                 $params['text'] = $text;
             } else {
                 $message = "Field callback can not be empty. Please fill the callback field";
-                throw new InvalidArgumentException($message);
+                throw new InvalidArgumentException($message, 422);
             }
             $imageUrl = $attachment->getImageUrl();
             if (!empty($imageUrl)) {

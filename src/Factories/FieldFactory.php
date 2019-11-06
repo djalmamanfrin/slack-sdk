@@ -15,22 +15,22 @@ class FieldFactory
         if (isset($params['title'])) {
             $field->setTitle($params['title']);
         } else {
-            $message = "Field short can not be empty. Please fill the short field to create a Field Instance";
-            throw new InvalidArgumentException($message);
+            $message = "Field title can not be empty. Please fill the title field to create a Field Instance";
+            throw new InvalidArgumentException($message, 422);
         }
 
         if (isset($params['value'])) {
             $field->setValue($params['value']);
         } else {
-            $message = "Field short can not be empty. Please fill the short field to create a Field Instance";
-            throw new InvalidArgumentException($message);
+            $message = "Field value can not be empty. Please fill the value field to create a Field Instance";
+            throw new InvalidArgumentException($message, 422);
         }
 
         if (isset($params['short'])) {
-            $field->setShort($params['short']);
+            $field->setShort((bool) $params['short']);
         } else {
-            $message = "Field short can not be empty. Please fill the short field to create a Field Instance";
-            throw new InvalidArgumentException($message);
+            $message = "Field short can be boll. Please set the short field correctly";
+            throw new InvalidArgumentException($message, 422);
         }
         return $field;
     }
@@ -58,10 +58,10 @@ class FieldFactory
             }
 
             $short = $field->getShort();
-            if (!empty($short)) {
+            if (is_bool($short)) {
                 $params['short'] = $short;
             } else {
-                $message = "Field short can not be empty. Please set the short field";
+                $message = "Field short can be boll. Please set the short field correctly";
                 throw new InvalidArgumentException($message);
             }
             array_push($result, $params);

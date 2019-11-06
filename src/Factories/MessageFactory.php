@@ -16,7 +16,7 @@ class MessageFactory
             $message->setText($params['text']);
         } else {
             $message = "Field text can not be empty. Please set the text field";
-            throw new InvalidArgumentException($message);
+            throw new InvalidArgumentException($message, 422);
         }
 
         if (isset($params['channel'])) {
@@ -52,7 +52,7 @@ class MessageFactory
         if (!empty($text)) {
             $response['text'] = $text;
         } else {
-            throw new InvalidArgumentException("Field text can not be empty. Please fill callback text field");
+            $message = "Field text can not be empty. Please set the text field";
         }
 
         $channel = $message->getChannel();

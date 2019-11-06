@@ -5,6 +5,7 @@ namespace Slack\Factories;
 use InvalidArgumentException;
 use Slack\Entities\Action;
 use Slack\Entities\ActionConfirm;
+use Slack\Enums\ButtonStyleEnum;
 use Slack\Enums\ButtonTypeEnum;
 
 class ActionFactory
@@ -14,31 +15,31 @@ class ActionFactory
         $action = new Action();
         if (isset($params['name'])) {
             $action->setName($params['name']);
-            $action->setType(ButtonTypeEnum::DEFAULT);
         } else {
             $message = "Field name can not be empty. Please fill the name field to create a Field Instance";
-            throw new InvalidArgumentException($message);
+            throw new InvalidArgumentException($message, 422);
         }
-
         if (isset($params['text'])) {
             $action->setText($params['text']);
         } else {
             $message = "Field text can not be empty. Please fill the text field to create a Field Instance";
-            throw new InvalidArgumentException($message);
+            throw new InvalidArgumentException($message, 422);
         }
-
-        if (isset($params['style'])) {
+        if (isset($params['type']) && ButtonTypeEnum::validate($params['type'])) {
+            $action->setType($params['type']);
+        } else {
+            $message = "Field type can not be empty. Please fill the type field to create a Field Instance";
+            throw new InvalidArgumentException($message, 422);
+        }
+        if (isset($params['style']) && ButtonTypeEnum::validate($params['style'])) {
             $action->setStyle($params['style']);
+        } elseif (ButtonTypeEnum::BUTTON === strtolower($params['type'])) {
+            $action->setStyle(ButtonStyleEnum::DEFAULT);
         }
 
         if (isset($params['value'])) {
             $action->setValue($params['value']);
         }
-
-        if (ButtonTypeEnum::validate($params['type'])) {
-            $action->setType($params['type']);
-        }
-
         $action->setConfirm([]);
         if (isset($params['confirm'])) {
             $action->setConfirm($params['confirm']);

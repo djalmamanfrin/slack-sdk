@@ -16,7 +16,7 @@ class ActionConfirm
     /** @var string $dismissText */
     protected $dismissText;
 
-    public function getTitle():string
+    public function getTitle()
     {
         return $this->title;
     }
@@ -24,7 +24,6 @@ class ActionConfirm
     public function setTitle(string $title)
     {
         $this->title = $title;
-        return $this;
     }
 
     public function getText():string
@@ -35,10 +34,9 @@ class ActionConfirm
     public function setText(string $text)
     {
         $this->text = $text;
-        return $this;
     }
 
-    public function getOkText():string
+    public function getOkText()
     {
         return $this->okText;
     }
@@ -46,10 +44,9 @@ class ActionConfirm
     public function setOkText(string $okText)
     {
         $this->okText = $okText;
-        return $this;
     }
 
-    public function getDismissText():string
+    public function getDismissText()
     {
         return $this->dismissText;
     }
@@ -57,6 +54,5 @@ class ActionConfirm
     public function setDismissText(string $dismissText)
     {
         $this->dismissText = $dismissText;
-        return $this;
     }
 }
