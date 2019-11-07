@@ -14,14 +14,14 @@ class SlackTest extends \PHPUnit\Framework\TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $url = getenv('SLACK_END_POINT');
-        $this->slack = new Slack($url);
+//        $url = getenv('SLACK_END_POINT');
+//        $this->slack = new Slack($url);
     }
 
-    public function testInstantiation()
-    {
-        $this->assertInstanceOf(Slack::class, $this->slack);
-    }
+//    public function testInstantiation()
+//    {
+//        $this->assertInstanceOf(Slack::class, $this->slack);
+//    }
 
     /**
      * ATENTION: This test need a webhook to run. So i recommend to run in your local environment

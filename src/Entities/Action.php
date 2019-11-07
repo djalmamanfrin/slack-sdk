@@ -24,7 +24,7 @@ class Action
     /** @var string $value */
     protected $value;
 
-    /** @var ActionConfirm[] $confirm */
+    /** @var ActionConfirm $confirm */
     protected $confirm;
 
     public function getName():string
@@ -82,15 +82,8 @@ class Action
         return  $this->confirm;
     }
 
-    public function setConfirm($actionConfirm)
+    public function setConfirm(ActionConfirm $actionConfirm)
     {
-        $this->confirm = null;
-        if ($actionConfirm instanceof ActionConfirm) {
-            $this->confirm = $actionConfirm;
-        }
-        if (is_array($actionConfirm) && !empty($actionConfirm)) {
-            $actionConfirm = ActionConfirmFactory::createFromArray($actionConfirm);
-            $this->confirm = $actionConfirm;
-        }
+        $this->confirm = $actionConfirm;
     }
 }
