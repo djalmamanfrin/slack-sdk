@@ -5,7 +5,7 @@
 [![Build Status](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/build.png?b=master)](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
-A simple PHP package for sending messages to [Slack](https://slack.com) with [incoming webhooks](https://my.slack.com/services/new/incoming-webhook), focussed on ease-of-use and elegant syntax. **Note: this package is no longer being actively maintained.**
+A simple PHP package for sending messages to [Slack](https://slack.com) with [incoming webhooks](https://my.slack.com/services/new/incoming-webhook), focussed on ease-of-use and elegant syntax.
 
 ## Requirements
 * PHP 7.2 or above
@@ -23,7 +23,7 @@ composer require manfrin/slack
 ## How to use?
 * Rename the file .env.example to .env
 * Set your weebhook in .env file.
-* Exec the first test called testSendOnlyATextMessage to know if your webhook was config correctly
+* Exec the first test called **testSendOnlyATextMessage** to know if your webhook was config correctly
 
 ### Talk is cheap, show me code
 ```php
