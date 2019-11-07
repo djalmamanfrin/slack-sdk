@@ -16,8 +16,11 @@ class ButtonTypeEnum
         return $reflector->getConstants();
     }
 
-    public static function validate($type)
+    public static function validate(string $type)
     {
-        return array_key_exists(strtoupper($type), self::all());
+        if (!array_key_exists(strtoupper($type), self::all())) {
+            $message = "The type field is not found in IconTypeEnum class. So, the type informed (%s) is not allowed";
+            throw new InvalidArgumentException(sprintf($message, $type), 422);
+        }
     }
 }

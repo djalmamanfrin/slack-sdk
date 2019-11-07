@@ -3,5 +3,6 @@
 vendor/
 tests/.phpunit.result.cache
 tests/Factories/.phpunit.result.cache
+tests/Enums/.phpunit.result.cache
 dockerfiles/
 docker-compose.yml

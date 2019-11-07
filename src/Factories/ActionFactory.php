@@ -25,16 +25,13 @@ class ActionFactory
             $message = "Field text can not be empty. Please fill the text field to create a Field Instance";
             throw new InvalidArgumentException($message, 422);
         }
-        if (isset($params['type']) && ButtonTypeEnum::validate($params['type'])) {
+        if (isset($params['type'])) {
+            ButtonTypeEnum::validate($params['type']);
             $action->setType($params['type']);
-        } else {
-            $message = "Field type can not be empty. Please fill the type field to create a Field Instance";
-            throw new InvalidArgumentException($message, 422);
         }
-        if (isset($params['style']) && ButtonTypeEnum::validate($params['style'])) {
+        if (isset($params['style'])) {
+            ButtonStyleEnum::validate($params['style']);
             $action->setStyle($params['style']);
-        } elseif (ButtonTypeEnum::BUTTON === strtolower($params['type'])) {
-            $action->setStyle(ButtonStyleEnum::DEFAULT);
         }
 
         if (isset($params['value'])) {
