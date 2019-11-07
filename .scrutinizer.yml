@@ -9,43 +9,12 @@ build:
           - "cp .env.example .env"
           - "echo 'SLACK_END_POINT =your_webhook' > .env"
         override:
-          - command: 'php ./vendor/bin/phpunit --coverage-clover=coverage-clover'
+          - command: 'php ./vendor/bin/phpunit --coverage-clover=coverage'
             coverage:
-              file: 'coverage-clover'
+              file: 'coverage'
               format: 'php-clover'
 
-tools:
-  php_code_coverage:
-    enabled: true
-    filter:
-      excluded_paths:
-        - 'vendor/*'
-        - 'tests/*'
-
-  php_code_sniffer:
-    enabled: true
-    config:
-      standard: PSR2
-      sniffs:
-        generic:
-          files:
-            one_class_per_file_sniff: false
-
-  # Runs Scrutinizer's PHP Analyzer Tool
-  # https://scrutinizer-ci.com/docs/tools/php/php-analyzer/config_reference
-  php_analyzer:
-    enabled: true
-    config:
-      checkstyle:
-        enabled: true
-        naming:
-          enabled: true
-          property_name: ^[_a-zA-Z][a-zA-Z0-9_]*$ #Allow underscores & caps
-          method_name: ^(?:[_a-zA-Z]|__)[a-zA-Z0-9_]*$ #Allow underscores & caps
-          parameter_name: ^[a-z][a-zA-Z0-9_]*$ # Allow underscores
-          local_variable: ^[a-zA-Z][a-zA-Z0-9_]*$ #Allow underscores & caps
-          exception_name: ^[a-zA-Z][a-zA-Z0-9]*Exception$
-          isser_method_name: ^(?:[_a-zA-Z]|__)[a-zA-Z0-9]*$ #Allow underscores & caps
-    filter:
-      excluded_paths:
-        - 'vendor/*'
+filter:
+  excluded_paths:
+    - 'vendor/*'
+    - 'tests/*'
