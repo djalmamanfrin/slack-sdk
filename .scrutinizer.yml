@@ -2,11 +2,11 @@ build:
   environment:
     php:
       version: 7.2
-
-before_commands:
-  - "cp .env.example .env"
-  - "curl -sS http://getcomposer.org/installer | php"
-  - "php composer.phar install --prefer-source --no-interaction"
+  nodes:
+    coverage:
+      tests:
+        before:
+          - "cp .env.example .env"
 
 tools:
   php_code_coverage:
