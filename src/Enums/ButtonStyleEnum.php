@@ -4,6 +4,7 @@
 namespace Slack\Enums;
 
 
+use InvalidArgumentException;
 use ReflectionClass;
 
 class ButtonStyleEnum
@@ -18,8 +19,11 @@ class ButtonStyleEnum
         return $reflector->getConstants();
     }
 
-    public static function validate($type)
+    public static function validate(string $type)
     {
-        return array_key_exists(strtoupper($type), self::all());
+        if (!array_key_exists(strtoupper($type), self::all())) {
+            $message = "The style field is not found in IconTypeEnum class. So, the style informed (%s) is not allowed";
+            throw new InvalidArgumentException(sprintf($message, $type), 422);
+        }
     }
 }

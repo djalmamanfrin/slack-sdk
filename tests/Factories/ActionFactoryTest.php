@@ -62,18 +62,6 @@ class ActionFactoryTest extends \PHPUnit\Framework\TestCase
         ActionFactory::createFromArray($payload[0]);
     }
 
-    public function testExceptingExceptionForActionClassTypeField()
-    {
-        $field = "type";
-        $payload = FactoryHelper::getActions();
-        unset($payload[0][$field]);
-
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionCode(422);
-        $this->expectExceptionMessage(sprintf($this->message, $field, $field));
-        ActionFactory::createFromArray($payload[0]);
-    }
-
     public function testNotRequiredConfirmationFields()
     {
         $payload = FactoryHelper::getActions();

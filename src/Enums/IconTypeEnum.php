@@ -16,11 +16,11 @@ class IconTypeEnum
         return $reflector->getConstants();
     }
 
-    public static function validate($type)
+    public static function validate(string $type)
     {
         if (!array_key_exists(strtoupper($type), self::all())) {
-            $message = "The iconType field is not found in IconTypeEnum class. So, the type informed (%s) is not allowed";
-            throw new InvalidArgumentException(sprintf($message, $type));
+            $message = "The icon type field is not found in IconTypeEnum class. So, the icon type informed (%s) is not allowed";
+            throw new InvalidArgumentException(sprintf($message, $type), 422);
         }
     }
 }
