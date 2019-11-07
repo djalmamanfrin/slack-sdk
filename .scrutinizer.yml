@@ -1,16 +1,18 @@
 build:
   environment:
     php:
-    version: 7.2
-  tests:
-    before:
-      - "cp .env.example .env"
-      - "echo 'SLACK_END_POINT =your_webhook' > .env"
-    override:
-      - command: 'php ./vendor/bin/phpunit --coverage'
-        coverage:
-          file: 'phpunit.xml'
-          format: 'php-clover'
+      version: 7.2
+  nodes:
+    coverage:
+      tests:
+        before:
+          - "cp .env.example .env"
+          - "echo 'SLACK_END_POINT =your_webhook' > .env"
+        override:
+          - command: 'php ./vendor/bin/phpunit'
+            coverage:
+              file: 'phpunit.xml'
+              format: 'php-clover'
 
 filter:
   paths:
