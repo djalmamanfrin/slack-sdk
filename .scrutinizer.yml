@@ -1,6 +1,7 @@
 before_commands:
-  - "composer install --prefer-source"
-  - "cp .env.example .env"
+  - curl -sS http://getcomposer.org/installer | php
+  - php composer.phar install --prefer-source --no-interaction
+  - cp .env.example .env
 
 filter:
   excluded_paths: [tests/*]
