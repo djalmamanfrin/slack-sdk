@@ -7,4 +7,6 @@ if (!defined('ROOT_DIR')) {
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
-$dotenv->overload();
+if (file_exists(".env")) {
+    $dotenv->overload();
+}
