@@ -1,8 +1,9 @@
 build:
-  environment:
-    php7.2:
-      version: 7.2
-    php7.3:
+  environment-php73:
+    php:
+    version: 7.2
+  environment-php72:
+    php:
       version: 7.3
   tests:
     before:
