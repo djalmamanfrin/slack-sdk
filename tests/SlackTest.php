@@ -21,11 +21,6 @@ class SlackTest extends \PHPUnit\Framework\TestCase
 //        $this->slack = new Slack($url);
     }
 
-//    public function testInstantiation()
-//    {
-//        $this->assertInstanceOf(Slack::class, $this->slack);
-//    }
-
 //    public function testSendAFullMessage()
 //    {
 //        $payload = FactoryHelper::getMessage();
