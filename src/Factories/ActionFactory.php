@@ -33,13 +33,14 @@ class ActionFactory
             ButtonStyleEnum::validate($params['style']);
             $action->setStyle($params['style']);
         }
-
         if (isset($params['value'])) {
             $action->setValue($params['value']);
         }
-        $action->setConfirm([]);
-        if (isset($params['confirm'])) {
+        if (isset($params['confirm']) && $params['confirm'] instanceof ActionConfirm) {
             $action->setConfirm($params['confirm']);
+        } elseif (isset($params['confirm']) && is_array($params['confirm'])) {
+            $actionConfirm = ActionConfirmFactory::createFromArray($params['confirm']);
+            $action->setConfirm($actionConfirm);
         }
         return $action;
     }
