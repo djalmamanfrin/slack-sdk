@@ -1,10 +1,7 @@
 build:
-  environment-php73:
+  environment:
     php:
     version: 7.2
-  environment-php72:
-    php:
-      version: 7.3
   tests:
     before:
       - "cp .env.example .env"
