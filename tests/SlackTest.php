@@ -6,6 +6,9 @@ use Slack\Factories\MessageFactory;
 use Slack\Slack;
 use Tests\Factories\FactoryHelper;
 
+/**
+ * ATENTION: This tests need a webhook to run. So i recommend to run in your local environment
+ */
 class SlackTest extends \PHPUnit\Framework\TestCase
 {
     /** @var Slack $slack */
@@ -23,9 +26,6 @@ class SlackTest extends \PHPUnit\Framework\TestCase
 //        $this->assertInstanceOf(Slack::class, $this->slack);
 //    }
 
-    /**
-     * ATENTION: This test need a webhook to run. So i recommend to run in your local environment
-     */
 //    public function testSendAFullMessage()
 //    {
 //        $payload = FactoryHelper::getMessage();
