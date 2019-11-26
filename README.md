@@ -1,4 +1,4 @@
-# Slack SDK for PHP (Tests In Progress)
+# Slack SDK for PHP
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/?branch=master)
