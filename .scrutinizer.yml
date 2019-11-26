@@ -9,10 +9,10 @@ build:
           - "cp .env.example .env"
           - "echo 'SLACK_END_POINT =your_webhook' > .env"
         override:
-          - command: 'php ./vendor/bin/phpunit'
+          - command: 'php ./vendor/phpunit/phpunit/phpunit --bootstrap ./tests/bootstrap.php --configuration ./phpunit.xml'
             coverage:
-              file: 'phpunit.xml'
-              format: 'php-clover'
+              file: './target/coverage.xml'
+              format: 'clover'
 
 filter:
   paths:
