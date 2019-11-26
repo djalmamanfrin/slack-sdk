@@ -8,7 +8,7 @@ use Slack\Factories\FieldFactory;
 
 class FieldFactoryTest extends \PHPUnit\Framework\TestCase
 {
-    private $message = "Field %s can not be empty. Please fill the %s field to create a Field Instance";
+    private $message = "Field %s can not be empty. Please set the %s field";
 
     public function testMethodsExists()
     {
@@ -36,7 +36,7 @@ class FieldFactoryTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($assertion);
     }
 
-    public function testExceptingExceptionForFieldClassTitleField()
+    public function testExceptingExceptionToTitleFieldInCreateFromArrayMethod()
     {
         $field = "title";
         $payload = FactoryHelper::getFields();
@@ -48,7 +48,18 @@ class FieldFactoryTest extends \PHPUnit\Framework\TestCase
         FieldFactory::createFromArray($payload[0]);
     }
 
-    public function testExceptingExceptionForFieldClassValueField()
+    public function testExceptingExceptionToTittleFieldInToArrayMethod()
+    {
+        $field = "title";
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionCode(422);
+        $this->expectExceptionMessage(sprintf($this->message, $field, $field));
+
+        $fields = [new Field()];
+        FieldFactory::toArray($fields);
+    }
+
+    public function testExceptingExceptionToValueFieldInCreateFromArrayMethod()
     {
         $field = "value";
         $payload = FactoryHelper::getFields();
@@ -60,16 +71,44 @@ class FieldFactoryTest extends \PHPUnit\Framework\TestCase
         FieldFactory::createFromArray($payload[0]);
     }
 
-    public function testExceptingExceptionForFieldClassShortField()
+    public function testExceptingExceptionToValueFieldInToArrayMethod()
+    {
+        $valueField = "value";
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionCode(422);
+        $this->expectExceptionMessage(sprintf($this->message, $valueField, $valueField));
+
+        $field = new Field();
+        $field->setTitle("Danger");
+        $fields = [$field];
+        FieldFactory::toArray($fields);
+    }
+
+    public function testExceptingExceptionToShortFieldInCreateFromArrayMethod()
     {
         $field = "short";
         $payload = FactoryHelper::getFields();
         unset($payload[0][$field]);
 
-        $message = "Field short can be boll. Please set the short field correctly";
+        $message = "Field short can be bool. Please set the short field correctly";
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionCode(422);
         $this->expectExceptionMessage($message);
         FieldFactory::createFromArray($payload[0]);
+    }
+
+    public function testExceptingExceptionToShortFieldInToArrayMethod()
+    {
+        $shortField = "short";
+        $message = "Field short can be bool. Please set the short field correctly";
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionCode(422);
+        $this->expectExceptionMessage($message);
+
+        $field = new Field();
+        $field->setTitle("Danger");
+        $field->setValue('Medium');
+        $fields = [$field];
+        FieldFactory::toArray($fields);
     }
 }

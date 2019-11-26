@@ -15,7 +15,7 @@ class Field
     /** @var bool $short */
     protected $short;
 
-    public function getTitle():string
+    public function getTitle()
     {
         return $this->title;
     }
@@ -25,7 +25,7 @@ class Field
         $this->title = $title;
     }
 
-    public function getValue(): string
+    public function getValue()
     {
         return $this->value;
     }
@@ -35,7 +35,7 @@ class Field
         $this->value = $value;
     }
 
-    public function getShort(): bool
+    public function getShort()
     {
         return $this->short;
     }
