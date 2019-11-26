@@ -28,7 +28,7 @@ class Message
     /** @var Attachment[] $attachments */
     protected $attachments;
 
-    public function getText(): string
+    public function getText()
     {
         return $this->text;
     }

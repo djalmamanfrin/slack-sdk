@@ -98,6 +98,10 @@ class FactoryHelper
     {
         return [
             "text" => "This is the text of message",
+            "username" => "Fulano da Silva",
+            "channel" => "#php",
+            "iconUrl" => "http://www.fake.com/someimage.png",
+            "iconEmoji" => ":ghost:",
             "attachments" => self::getAttachments()
         ];
     }

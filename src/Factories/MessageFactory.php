@@ -27,12 +27,12 @@ class MessageFactory
             $message->setUsername($params['username']);
         }
 
-        if (isset($params['iconEmoji']) && $params['iconType'] == IconTypeEnum::ICON_EMOJI) {
+        if (isset($params['iconEmoji'])) {
             $message->setIconEmoji($params['iconEmoji']);
             $message->setIconType(IconTypeEnum::ICON_EMOJI);
         }
 
-        if (isset($params['iconUrl']) && $params['iconType'] == IconTypeEnum::ICON_URL) {
+        if (isset($params['iconUrl'])) {
             $message->setIconUrl($params['iconUrl']);
             $message->setIconType(IconTypeEnum::ICON_URL);
         }
@@ -53,6 +53,7 @@ class MessageFactory
             $response['text'] = $text;
         } else {
             $message = "Field text can not be empty. Please set the text field";
+            throw new InvalidArgumentException($message, 422);
         }
 
         $channel = $message->getChannel();
@@ -75,8 +76,10 @@ class MessageFactory
             $response['icon_url'] = $iconUrl;
         }
 
+        IconTypeEnum::validate($message->getIconType());
+
         $iconEmoji = $message->getIconEmoji();
-        if (!empty($iconEmoji) && $iconType === IconTypeEnum::ICON_EMOJI) {
+        if (!empty($iconEmoji)) {
             $response['icon_emoji'] = $iconEmoji;
         }
 

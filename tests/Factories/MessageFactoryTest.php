@@ -34,7 +34,7 @@ class MessageFactoryTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($assertion);
     }
 
-    public function testExceptingExceptionForActionClassTextField()
+    public function testExceptingExceptionToCreateFromArrayMethod()
     {
         $field = "text";
         $payload = FactoryHelper::getMessage();
@@ -44,6 +44,15 @@ class MessageFactoryTest extends \PHPUnit\Framework\TestCase
         $this->expectExceptionCode(422);
         $this->expectExceptionMessage(sprintf($this->message, $field, $field));
         MessageFactory::createFromArray($payload);
+    }
+
+    public function testExceptingExceptionToArrayMethod()
+    {
+        $field = "text";
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionCode(422);
+        $this->expectExceptionMessage(sprintf($this->message, $field, $field));
+        MessageFactory::toArray(new Message());
     }
 
     public function testNotRequiredConfirmationFields()
