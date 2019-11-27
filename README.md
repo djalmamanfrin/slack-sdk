@@ -4,6 +4,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/build.png?b=master)](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/djalmamanfrin/slack-sdk/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/djalmamanfrin/slack-sdk/blob/master/LICENSE)
 
 A simple PHP package for sending messages to [Slack](https://slack.com) with [incoming webhooks](https://my.slack.com/services/new/incoming-webhook), focussed on ease-of-use and elegant syntax.
 
