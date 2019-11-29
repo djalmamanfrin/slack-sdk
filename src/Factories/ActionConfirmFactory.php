@@ -12,12 +12,12 @@ class ActionConfirmFactory
     public static function createFromArray(array $params):ActionConfirm
     {
         $confirm = new ActionConfirm();
-        if (isset($params['text'])) {
-            $confirm->setText($params['text']);
-        } else {
+        if (!isset($params['text'])) {
             $message = "Field text can not be empty. Please set the text field";
             throw new InvalidArgumentException($message, 422);
         }
+        $confirm->setText($params['text']);
+
         if (isset($params['title'])) {
             $confirm->setTitle($params['title']);
         }
@@ -34,12 +34,12 @@ class ActionConfirmFactory
     {
         $params = [];
         $text = $confirm->getText();
-        if (!empty($text)) {
-            $params['text'] = $text;
-        } else {
+        if (empty($text)) {
             $message = "Field text can not be empty. Please set the text field";
             throw new InvalidArgumentException($message, 422);
         }
+        $params['text'] = $text;
+
         $title = $confirm->getTitle();
         if (!empty($title)) {
             $params['title'] = $title;

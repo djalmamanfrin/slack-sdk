@@ -13,18 +13,18 @@ class ActionFactory
     public static function createFromArray(array $params): Action
     {
         $action = new Action();
-        if (isset($params['name'])) {
-            $action->setName($params['name']);
-        } else {
+        if (!isset($params['name'])) {
             $message = "Field name can not be empty. Please fill the name field to create a Field Instance";
             throw new InvalidArgumentException($message, 422);
         }
-        if (isset($params['text'])) {
-            $action->setText($params['text']);
-        } else {
+        $action->setName($params['name']);
+
+        if (!isset($params['text'])) {
             $message = "Field text can not be empty. Please fill the text field to create a Field Instance";
             throw new InvalidArgumentException($message, 422);
         }
+        $action->setText($params['text']);
+
         if (isset($params['type'])) {
             ButtonTypeEnum::validate($params['type']);
             $action->setType($params['type']);
@@ -52,20 +52,18 @@ class ActionFactory
         foreach ($actions as $action) {
             $params = [];
             $name = $action->getName();
-            if (!empty($name)) {
-                $params['name'] = $name;
-            } else {
+            if (empty($name)) {
                 $message = "Field name can not be empty. Please fill the name field to create a Field Instance";
                 throw new InvalidArgumentException($message);
             }
+            $params['name'] = $name;
 
             $text = $action->getText();
-            if (!empty($text)) {
-                $params['text'] = $text;
-            } else {
+            if (empty($text)) {
                 $message = "Field text can not be empty. Please fill the text field to create a Field Instance";
                 throw new InvalidArgumentException($message);
             }
+            $params['text'] = $text;
 
             $style = $action->getStyle();
             if (!empty($style)) {

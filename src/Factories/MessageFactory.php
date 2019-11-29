@@ -12,12 +12,11 @@ class MessageFactory
     {
         $message = new Message();
 
-        if (isset($params['text'])) {
-            $message->setText($params['text']);
-        } else {
+        if (!isset($params['text'])) {
             $message = "Field text can not be empty. Please set the text field";
             throw new InvalidArgumentException($message, 422);
         }
+        $message->setText($params['text']);
 
         if (isset($params['channel'])) {
             $message->setChannel($params['channel']);
@@ -49,12 +48,11 @@ class MessageFactory
         $response = [];
 
         $text = $message->getText();
-        if (!empty($text)) {
-            $response['text'] = $text;
-        } else {
+        if (empty($text)) {
             $message = "Field text can not be empty. Please set the text field";
             throw new InvalidArgumentException($message, 422);
         }
+        $response['text'] = $text;
 
         $channel = $message->getChannel();
         if (!empty($channel)) {

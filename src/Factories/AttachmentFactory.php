@@ -11,14 +11,14 @@ class AttachmentFactory
     public static function createFromArray(array $params): Attachment
     {
         $attachment = new Attachment();
-        if (isset($params['fallback'])) {
-            $attachment->setFallback($params['fallback']);
-        }
-        if (isset($params['text'])) {
-            $attachment->setText($params['text']);
-        } else {
+        if (!isset($params['text'])) {
             $message = "Field text can not be empty. Please fill the text field";
             throw new InvalidArgumentException($message, 422);
+        }
+        $attachment->setText($params['text']);
+
+        if (isset($params['fallback'])) {
+            $attachment->setFallback($params['fallback']);
         }
         if (isset($params['image_url'])) {
             $attachment->setImageUrl($params['image_url']);
@@ -78,16 +78,16 @@ class AttachmentFactory
         /** @var Attachment[] $attachments */
         foreach ($attachments as $attachment) {
             $params = [];
+            $text = $attachment->getText();
+            if (empty($text)) {
+                $message = "Field callback can not be empty. Please fill the callback field";
+                throw new InvalidArgumentException($message, 422);
+            }
+            $params['text'] = $text;
+
             $fallback = $attachment->getFallback();
             if (!empty($fallback)) {
                 $params['fallback'] = $fallback;
-            }
-            $text = $attachment->getText();
-            if (!empty($text)) {
-                $params['text'] = $text;
-            } else {
-                $message = "Field callback can not be empty. Please fill the callback field";
-                throw new InvalidArgumentException($message, 422);
             }
             $imageUrl = $attachment->getImageUrl();
             if (!empty($imageUrl)) {
